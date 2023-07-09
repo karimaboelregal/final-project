@@ -1,0 +1,19 @@
+import { configureStore } from '@reduxjs/toolkit'
+import themeReducer from "./reducer/themeSlice";
+import boardsReducer from "./reducer/boardsSlice";
+import boardReducer from "./reducer/boardSlice";
+import modalReducer from "./reducer/modalSlice";
+
+export const store = configureStore({
+  reducer: {
+    theme: themeReducer,
+    boards: boardsReducer,
+    board: boardReducer,
+    modal: modalReducer
+  },
+})
+
+// Infer the `RootState` and `AppDispatch` types from the store itself
+export type RootState = ReturnType<typeof store.getState>
+// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
+export type AppDispatch = typeof store.dispatch
