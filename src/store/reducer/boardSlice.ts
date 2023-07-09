@@ -188,6 +188,7 @@ export const getBoard = createAsyncThunk('board/getBoard', async (id: string) =>
 
 
     data = [data, id]
+    console.log(data);
     return data;
 })
 

@@ -208,7 +208,7 @@ function DeleteBoard() {
                 Are you sure you want to delete the ‘Build settings UI’ task and its subtasks? This action cannot be reversed.
             </Typography>
             <Stack direction={"row"} width={"100%"} gap={"10px"}>
-                <CustomButton2 sx={{ backgroundColor: "red", width: "50%", ":hover": { backgroundColor: "red" } }} onClick={() => { dispatch(hideModal()); dispatch(deleteBoard(id)) }}>Delete</CustomButton2>
+                <CustomButton2 sx={{ backgroundColor: "red", width: "50%", ":hover": { backgroundColor: "red" } }} onClick={() => { dispatch(setPending());dispatch(hideModal()); dispatch(deleteBoard(id)) }}>Delete</CustomButton2>
                 <CustomButton sx={{ width: "50%" }} onClick={() => dispatch(hideModal())}>Cancel</CustomButton>
             </Stack>
         </Box>

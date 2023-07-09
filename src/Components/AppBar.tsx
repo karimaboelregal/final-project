@@ -20,6 +20,7 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import BoardList from './List';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
+import { setPending } from '../store/reducer/boardSlice';
 
 const CustomButton2 = styled(Button)(({ theme }) => ({
     backgroundColor: "#635FC7",

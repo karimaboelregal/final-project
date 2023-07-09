@@ -80,10 +80,10 @@ export const addBoard = createAsyncThunk('board/addBoard', async (data: any) => 
             );
             return response.text();
         })
-        .then(text => {
+        .then(async text => {
             const ID = JSON.parse(text).id;
-            data[1].map(async (elem:string) => {
-                await fetch('https://api.trello.com/1/boards/' + ID + '/lists?name=' + elem + '&key=e42590f8c9dc4f3d2e14f9e37b8aa2ea&token=ATTAfe027f95da0871424eb852537f602f14d66ee8f75073c9b434a57ec3499ae250B6D1C411', {
+            for (let i = data[1].length-1; i >= 0; i--) {
+                await fetch('https://api.trello.com/1/boards/' + ID + '/lists?name=' + data[1][i] + '&key=e42590f8c9dc4f3d2e14f9e37b8aa2ea&token=ATTAfe027f95da0871424eb852537f602f14d66ee8f75073c9b434a57ec3499ae250B6D1C411', {
                     method: 'POST',
                     headers: {
                         'Accept': 'application/json'
@@ -98,7 +98,8 @@ export const addBoard = createAsyncThunk('board/addBoard', async (data: any) => 
                     .then(text => console.log(text))
                     .catch(err => console.error(err));
 
-            })
+            }
+
         })
         .catch(err => console.error(err));
 
